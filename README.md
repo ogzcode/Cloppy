@@ -15,10 +15,8 @@ npm run start
 npm run dist
 ```
 
-#### App Image
-
-Light Mode
+#### Light Mode
 ![Light Mode](./assets//screenshot/light-mode.png)
 
-Dark Mode
+#### Dark Mode
 ![Dark Mode](./assets//screenshot/dark-mode.png)
