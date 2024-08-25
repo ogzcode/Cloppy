@@ -1,0 +1,215 @@
+:root {
+    --slate-950: #020617;
+    --slate-800: #1e293b;
+    --slate-700: #334155;
+    --slate-200: #e2e8f0;
+    --slate-100: #f1f5f9;
+    --slate-50: #f8fafc;
+
+    --red-600: #dc2626;
+    --red-100: #fee2e2;
+    --ember-400: #10b981;
+    --ember-100: #fef3c7;
+
+
+    --nav-border: 1px solid var(--slate-200);
+    --nav-title-color: var(--slate-700);
+    --nav-bg: #fff;
+
+    --theme-icon-bg: var(--slate-100);
+
+    --nav-btn-bg: var(--slate-50);
+    --nav-btn-hover-bg: var(--slate-100);
+
+    --nav-btn-color: var(--slate-800);
+
+    --list-item-bg: #fff;
+    --list-item-hover: var(--slate-50);
+
+    --content-color: var(--slate-800);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    position: relative;
+    background-color: #fff;
+    overflow-x: hidden;
+
+    scrollbar-width: none;
+}
+/* WebKit Tabanlı Tarayıcılar İçin */
+::-webkit-scrollbar {
+    display: none; /* Scroll bar'ı tamamen gizler */
+}
+
+body.dark-theme {
+    background-color: var(--slate-950);
+
+    --nav-border: 1px solid var(--slate-700);
+    --nav-title-color: var(--slate-50);
+    --nav-bg: var(--slate-950);
+
+    --theme-icon-bg: var(--slate-700);
+
+    --nav-btn-bg: var(--slate-700);
+    --nav-btn-hover-bg: var(--slate-800);
+
+    --nav-btn-color: var(--slate-50);
+
+    --list-item-bg: transparent;
+    --list-item-hover: var(--slate-800);
+
+    --content-color: var(--slate-50);
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3rem;
+    padding: 0 .75rem;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: var(--nav-border);
+    -webkit-app-region: drag;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    background-color: var(--nav-bg);
+}
+
+.window-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--nav-title-color);
+}
+
+.window-btn-group {
+    -webkit-app-region: no-drag;
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+}
+
+.window-btn {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    background-color: var(--nav-btn-bg);
+    color: var(--nav-btn-color)
+}
+
+.window-btn:hover {
+    background-color: var(--nav-btn-hover-bg);
+    color: var(--nav-btn-color);
+}
+
+#close:hover {
+    color: #fff;
+    background-color: var(--red-600);
+}
+
+#theme-icon {
+    position: relative;
+    margin-right: 1rem;
+}
+
+.icon-svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.1s ease;
+    /* Geçiş süresi ve efekti */
+    color: var(--slate-700);
+}
+
+#theme-icon-sun {
+    opacity: 0;
+    /* Varsayılan olarak görünmez */
+}
+
+#theme-icon-moon {
+    opacity: 1;
+    /* Varsayılan olarak görünür */
+}
+
+/* Dark mode aktif olduğunda */
+.dark-theme #theme-icon-sun {
+    opacity: 1;
+    /* Görünür */
+    color: var(--slate-50);
+}
+
+.dark-theme #theme-icon-moon {
+    opacity: 0;
+    /* Görünmez */
+    color: var(--slate-50);
+}
+
+#clipboard-history {
+    position: absolute;
+    top: 3rem;
+    padding: .75rem;
+    overflow-x: hidden;
+    width: 480px;
+}
+
+.list-group-item {
+    display: block;
+    width: calc(480px - 1.5rem);
+    padding: .75rem;
+    border: var(--nav-border);
+    max-height: 10rem;
+    min-height: 3rem;
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+    background-color: var(--list-item-bg);
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.list-group-item:hover {
+    background-color: var(--list-item-hover);
+}
+
+.content {
+    display: -webkit-box;
+    -webkit-line-clamp: 5; /* Gösterilecek maksimum satır sayısı */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Taşan kısımda üç nokta gösterir */
+    color: var(--content-color);
+    font-size: small;
+}
+
+.delete-btn {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    background: var(--red-100);
+    cursor: pointer;
+    border: none;
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+    color: var(--red-600)
+}
+
+
